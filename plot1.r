@@ -11,9 +11,10 @@ data$Date <- as.Date(data$Date, format = "%d/%m/%Y")
 data<-data %>% filter(Date >= "2007-02-01" & Date <= "2007-02-02")
 
 # create plot
-hist(as.numeric(data$Global_active_power), main="Global Active Power", 
-     xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red")+ylimit = c(0,1200)
-
 # Save it to a PNG file with a width of 480 pixels and a height of 480 pixels.
-dev.copy(png, file="plot1.png", height=480, width=480)
+
+png(file="plot1.png", height=480, width=480)
+hist(as.numeric(data$Global_active_power), main="Global Active Power", 
+     xlab="Global Active Power (kilowatts)", ylab="Frequency", col="Red") 
+
 dev.off()
